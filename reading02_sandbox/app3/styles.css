@@ -1,0 +1,13 @@
+div {
+  height: 50px;
+  width: 100px;
+  /*float: left;*/
+  background-color: #00ffcc;
+  display: block;
+  position:relative;
+  /*margin: auto;*/
+}
+
+div:hover {
+  background-color: #00cca3;
+}

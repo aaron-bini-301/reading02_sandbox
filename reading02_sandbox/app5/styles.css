@@ -1,0 +1,17 @@
+div {
+  height: 100px;
+  width: 300px;
+  /*float: left;*/
+  background-color: #00ffcc;
+  display: block;
+  position: absolute;;
+  margin: auto;
+}
+
+div:hover {
+  background-color: #00cca3;
+}
+
+button {
+  background-color: lightgreen;
+}

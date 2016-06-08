@@ -1,0 +1,12 @@
+li {
+  position: relative;
+  margin: auto;
+}
+
+li:hover {
+  background-color: #00cca3;
+}
+
+button {
+  background-color: lightgreen;
+}
