@@ -1,3 +1,6 @@
+//same animations as previous 2 apps, but now the divs move to the right
+//20 pixels on each mouseenter event
+
 $(function(){
   $('div').on('mouseenter', function(){
     $(this).animate({

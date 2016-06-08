@@ -1,3 +1,5 @@
+//this app has same functionality as app1, but the animations occur
+//over the course of one second now, so it is slowed down
 $(function(){
   $('div').on('mouseenter', function(){
     $(this).animate({
