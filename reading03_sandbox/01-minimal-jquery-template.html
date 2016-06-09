@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <!-- type is set to text/template which indicates that this will not contain javascript so that an error is not thrown -->
+  <script id="hello" type="text/template">
+    <!-- string inside of our script template -->
+    Hello world
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- this script appends the html content from element with id of 'hello' to element with id of 'app' -->
+  <script>
+    $('#app').append($('#hello').html());
+  </script>
+
+</body>
+</html>

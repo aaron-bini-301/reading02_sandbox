@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template with words</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <!-- template script with words rather than numbers inside of the {{}} -->
+  <script id="hello" type="text/template">
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    //this is an object with a few key: value pairs
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples"
+    };
+    //basically identical compile function to previous file, except the regular expression is looking for a particular string of letter characters instead of numbers
+    //swapper function is basically the same
+    var compile = function(template, expressions) {
+      return appTemplate.replace(/{{([A-Za-z]+)}}/g, swapper);
+      // where
+      function swapper(match, capture) {
+        return expressions[capture];
+      };
+    };
+    //appTemplate is set to html of element with id of 'hello', and this is passed into compile function on the next line
+    var appTemplate = $('#hello').html();
+    //compiledTemplate is set equal to compile function call, which returns our string with updated values from the data object
+    var compiledTemplate = compile(appTemplate, data);
+    //compiledTemplate is then appended to the div element with id of 'app'
+    $('#app').append(compiledTemplate);
+  </script>
+
+</body>
+</html>
