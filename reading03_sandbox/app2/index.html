@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+</head>
+<body>
+  <script id="template" type = "text/template">
+    {{#each people}}​
+      <h1>{{{ firstName }}} {{{ lastName }}}</h1>​
+        <p>likes {{hobby}}</p>
+        <p>and has worked for the company {{profession.company}} for {{profession.yearsWith}} years as a {{profession.title}}</p>
+        <p>{{{firstName}}} has {{{kids}}} children</p>
+        <p>{{{firstName}}} is {{age}} years old</p>
+        <p>{{#each family.chilidren}} {{children}} {{/each}}</p>
+    {{/each}}
+  </script>
+  <div id="output">Output here:</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <script src="app.js"></script>
+</body>

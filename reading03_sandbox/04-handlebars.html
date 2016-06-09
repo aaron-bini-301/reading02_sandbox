@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+<!-- template script -->
+  <script id="hello" type="text/x-handlebars-template">
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <script>
+    //same data object as previous example
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples"
+    };
+    //same as previous example
+    var appTemplate = $('#hello').html();
+    //this time compiledTemplate is set equal to a Handlebars method called compile which takes our appTemplate variable which is the text within our template script
+    var compiledTemplate = Handlebars.compile(appTemplate);
+    //Handlebars.compile returns a closure, which is a function that still has access to variables, data, and functions within that original function even after the function has been called, and so below we set var html equal to the function call compiledTemplate(data);, which is that closure (i think?)
+    var html = compiledTemplate(data);
+    //var html is appended to #app
+    $('#app').append(html);
+  </script>
+
+</body>
+</html>

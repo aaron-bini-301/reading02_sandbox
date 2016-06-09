@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Handlebars Template</title>
+  <link rel="stylesheet" type="text/css" href="style-for-05.css">
+  <!-- handlebars template -->
+  <script id="hello" type="text/x-handlebars-template">
+    Hello {{who}}, my name is {{name}}, and I like {{what}}
+    <p><br></p>
+    <p><span class='label'>Double (i.e., escaped): </span> {{puppy_double}}</p>
+    <p><span class='label'>Triple (i.e., normal):</span> {{{puppy_triple}}}</p>
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.4/handlebars.min.js" charset="utf-8"></script>
+  <script>
+  //data object with 5 key value pairs, the last two of which contain html tags within the string
+    var data = {
+      who: "Students",
+      name: "Ivan",
+      what: "Apples",
+      puppy_double: "Here is bold text: <b>I'm bold!</b><br>",
+      puppy_triple: "Here is bold text: <b>I'm bold!</b><br>",
+    };
+    //appTemplate set to the text of #hello
+    var appTemplate = $('#hello').html()
+    //same as previous example, compiledTemplate set equal to Handlebars.compile function call, which returns a closure
+    var compiledTemplate = Handlebars.compile(appTemplate);
+    //var html is set to the closure call, and this time the text from puppy_double is returned with visible html tags because they were escaped
+    var html = compiledTemplate(data);
+    //var html is appended to #app
+    $('#app').append(html);
+  </script>
+
+</body>
+</html>

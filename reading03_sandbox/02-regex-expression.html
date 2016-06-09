@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Minimal jQuery Template with Regex</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js" charset="utf-8"></script>
+  <!-- again here this is a template script with no valid javascript within it -->
+  <script id="hello" type="text/template">
+    Hello {{0}}, my name is {{1}}, and I like {{2}}
+  </script>
+</head>
+<body>
+  <div id="app"></div>
+  <!-- this script does contain javascript -->
+  <!-- compile is a function that takes two parameters, and returns a value -->
+  <!-- appTemplate is the html of the element with id of 'hello', in this case our above template -->
+  <!-- compiledTemplate is set equal to the compile function call with appTemplate and an array of strings passed in -->
+  <!-- this call to compile looks for the regular expressions within appTemplate, and returns a corresponding array item -->
+  <!-- this is done using the swapper function, which returns the array item based on the number parameter passed in to it -->
+  <script>
+    var compile = function(template, expressions) {
+      return appTemplate.replace(/{{(\d+)}}/g, swapper);
+      // where
+      function swapper(match, number) {
+        return expressions[number];
+      };
+    };
+    var appTemplate = $('#hello').html()
+    var compiledTemplate = compile(appTemplate, ["Students", "Ivan", "Apples"]);
+    $('#app').append(compiledTemplate);
+  </script>
+
+</body>
+</html>
